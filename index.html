@@ -12,17 +12,23 @@
 <body>
 
   <section class="container-principal">
-    <div class="container text-center">
+    <div class="container text-center" id="pantalla-inicial">
       <h1 class="title">EL JUICIO DE ATENEA</h1>
       <p class="descripcion">Demuestra tu sabiduría <br>
         y reconstruye Acrópolis</p>
 
-      <button class="btn btn-gold">Comenzar</button>
+      <button id="btnComenzar" class="btn btn-gold">Comenzar</button>
       <button class="btn btn-simple">Instrucciones</button>
     </div>
+
+    <div class="pergamino-oculto oculto" id="pergamino">
+      <p id="texto-pergamino"></p>
+    </div>
+
   </section>
 
   
-<script src="./JS/main.js"></script>
+<script type="module" src="./JS/main.js"></script>
+
 </body>
 </html>
