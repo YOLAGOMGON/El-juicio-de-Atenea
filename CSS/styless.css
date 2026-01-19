@@ -1,11 +1,23 @@
+/* Variables globales */
+:root {
+  --font-principal: "Almendra", serif;
+  --color-texto: #fff;
+  --color-titulo: rgb(223, 204, 36);
+  --color-parrafo: black;
+  --sombra-texto: 2px 2px 8px #000;
+  --titulo-size: 3rem;
+  --parrafo-size: 48px;
+}
+
+/* Estilos */
 html {
-  font-family: "Almendra", serif;
+  font-family: var(--font-principal);
 }
 
 body {
-  margin: 0;  
-  color: #fff;
-  background-image: ;
+  margin: 0;
+  color: var(--color-texto);
+  box-sizing: border-box;
 }
 
 .screen {
@@ -15,14 +27,13 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
-  text-shadow: 2px 2px 8px #000;
-  color: rgb(223, 204, 36);
-
+  font-size: var(--titulo-size);
+  text-shadow: var(--sombra-texto);
+  color: var(--color-titulo);
 }
 
-p {
-  color: black;
-  font-size: 48px;
+p, h3 {
+  color: var(--color-parrafo);
+  font-size: 2rem;
 
 }
