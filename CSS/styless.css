@@ -1,10 +1,6 @@
 html {
   font-family: "Almendra", serif;
-  /* background-image: url(../assets/background/Atenea_Fondo_3840x2160.png);
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-size: cover; */
+  
 }
 
 body {
@@ -24,7 +20,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   margin: auto;
-
+  position: relative;
 }
 
 .container {
@@ -118,6 +114,76 @@ body {
 
 }
 
+.pergamino-oculto {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%) translateX(80px);
+
+  width: 800px;
+  height: 900px;
+  min-height: 300px;
+  padding: 30px;
+
+  background-image: url(/assets/background/pergamino-removebg-preview.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+
+  opacity: 0;
+  visibility: hidden;     
+  pointer-events: none;   
+
+  z-index: 5;
+}
+
+.pergamino-contenido {
+  position: absolute;
+  top: 20%;
+  left: 24%;
+  width: 50%;
+  height: 55%;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.pergamino-oculto.mostrar {
+  visibility: visible; 
+  opacity: 1;
+  animation: aparecerPergamino 1.8s ease forwards;
+}
+
+
+#texto-pergamino {
+  opacity: 0;
+  font-family: 'Almendra', serif;
+  font-size: 2rem;
+  line-height: 1.5;
+  text-align: center;
+  padding: 3rem;
+}
+
+#texto-pergamino.mostrar {
+  opacity: 1;
+  animation: aparecerTexto 2s ease forwards;
+  transition: opacity 2s ease;
+}
+
+.btn-play-img {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+
+}
+
 .btn-gold,
 .btn-simple {
   position: relative;
@@ -141,6 +207,23 @@ body {
 
 .pantalla-desvanecer {
   animation: fadeOut 0.8s  forwards;
+}
+
+@keyframes aparecerTexto {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes aparecerPergamino {
+  from {
+    opacity: 1;
+    transform: translateY(-50%) translateX(80px);
+  }
+
+  to {
+    transform: translateY(-50%) translateX(0);
+  }
 }
 
 @keyframes fadeOut {
