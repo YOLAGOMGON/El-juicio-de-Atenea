@@ -40,14 +40,14 @@ Zeus impuso una condición: solo quien demuestre verdadera sabiduría podrá rec
 });
 
 /* =====================
-   ESCRIBIR TEXTO (ÚNICA)
+   ESCRIBIR TEXTO
 ===================== */
 function escribirTexto(mensaje, elemento) {
   elemento.textContent = "";
   elemento.style.opacity = 1;
 
   const btnContinuar = document.getElementById("btnContinuar");
-  btnContinuar.classList.add("oculto"); // por si vuelve a entrar
+  btnContinuar.classList.add("oculto"); // por si se reutiliza
 
   let i = 0;
   const intervalo = setInterval(() => {
@@ -56,7 +56,7 @@ function escribirTexto(mensaje, elemento) {
 
     if (i >= mensaje.length) {
       clearInterval(intervalo);
-      btnContinuar.classList.remove("oculto"); // 🔥 aparece flecha
+      btnContinuar.classList.remove("oculto"); //  aparece flecha
     }
   }, 40);
 }
