@@ -1,0 +1,342 @@
+
+html {
+  font-family: "Almendra", serif;
+  
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: linear-gradient( rgb(38, 23, 63), black);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+.container-principal {
+  background-image: url(../assets/background/Fondo_Pantalla2.png);
+  width: 95%;
+  height: 95%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.title {
+  font-size: 5rem;
+  color: #efb810;
+  text-align: center;
+  margin-top: 4rem;
+  margin-left: 12rem ;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.descripcion {
+  font-size: 3rem;
+  color: rgb(104, 69, 6);
+  text-align: center;
+  margin: 2rem;
+  margin-top: 4rem;
+ margin-left: 14rem;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.btn-gold {
+  background-color: #f0b90b;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px #000000;
+  transition: background-color 0.3s, transform 0.3s;
+  display: block;
+  margin: 1.5rem auto;
+  margin-top: 7rem;
+
+  
+}
+.btn-gold:active {
+  transform: scale(0.95);
+}
+
+.btn-gold:hover {
+  background-color: #d4a107;
+  transform: scale(1.05);
+}
+
+.btn-simple {
+  background-color: #96710c;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px #000000;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  display: block;
+  margin: 1em auto;
+}
+
+.btn-simple:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: scale(1.05);
+}
+
+.pergamino {
+  width: 60%;
+  max-width: 600px;
+  background: #f3e0b5;
+  border: 6px solid #a67c52;
+  border-radius: 15px;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.5s ease, padding 1s ease;
+  position: relative;
+  z-index: 10;
+
+}
+
+.pergamino-oculto {
+  pointer-events: none;
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%) translateX(80px);
+
+  width: 800px;
+  height: 900px;
+  min-height: 300px;
+  padding: 30px;
+
+  background-image: url(/assets/background/pergamino-removebg-preview.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+
+  opacity: 0;
+  visibility: hidden;     
+  pointer-events: none;   
+
+  z-index: 5;
+}
+
+.pergamino-contenido {
+  position: absolute;
+  top: 20%;
+  left: 24%;
+  width: 50%;
+  height: 55%;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.pergamino-oculto.mostrar {
+  pointer-events: auto;
+  visibility: visible; 
+  opacity: 1;
+  animation: aparecerPergamino 1.8s ease forwards;
+}
+
+
+#texto-pergamino {
+  opacity: 0;
+  font-family: 'Almendra', serif;
+  font-size: 2rem;
+  line-height: 1.5;
+  text-align: center;
+  padding: 3rem;
+}
+
+#texto-pergamino.mostrar {
+  opacity: 1;
+  animation: aparecerTexto 2s ease forwards;
+  transition: opacity 2s ease;
+}
+
+.btn-play-img {
+  pointer-events: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: -2rem;
+  display: flex;
+  justify-content: center;
+
+}
+
+.btn-play-img img {
+  width: 120px;
+  height: auto;
+  transition: transform 0.3s;
+  display: block;
+  margin-left: 350px;
+  cursor: pointer;
+
+}
+.btn-play-img:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.btn-play-img:active {
+  transform: scale(0.95);
+}
+
+.btn-gold,
+.btn-simple {
+  position: relative;
+  z-index: 20;
+}
+
+.pergamino.abierto {
+  max-height: 400px;
+}
+
+#texto-pergamino {
+  font-size: 1.8rem;
+  color: #3b2a1a;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.pantalla-desvanecer {
+  animation: fadeOut 0.8s  forwards;
+}
+
+.pergamino-instrucciones {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+
+ 
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pergamino-instrucciones .pergamino-contenido {
+  background-image: url(/assets/background/pergamino-removebg-preview.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 790px;
+  height: 700px;
+  min-height: 300px;
+  padding: 30px;
+  margin-top: -10rem;
+
+  right: 4%;
+
+  padding: 4rem 5rem;
+  text-align: center;
+  color: #3b2a1a;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pergamino-instrucciones h2 {
+  margin-bottom: 3rem;
+}
+
+.pergamino-instrucciones p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.pergamino-instrucciones .frase {
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.btn-trivia-atenea {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #f0b90b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px #000000;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-trivia-atenea:hover {
+  background-color: #d4a107;
+  transform: scale(1.05);
+}
+
+@keyframes aparecerTexto {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes aparecerPergamino {
+  from {
+    opacity: 1;
+    transform: translateY(-50%) translateX(80px);
+  }
+
+  to {
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  .descripcion {
+    font-size: 1.5rem;
+  }
+
+  .btn-gold {
+    font-size: 1.5rem;
+    margin-top: 3rem;
+  }
+}
