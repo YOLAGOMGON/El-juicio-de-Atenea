@@ -5,6 +5,29 @@ import { iniciarBotones } from "./ui/buttons.js";
 ===================== */
 document.addEventListener("DOMContentLoaded", () => {
   iniciarBotones();
+
+  /* =====================
+     BOTÓN CONTINUAR
+  ===================== */
+  const btnContinuar = document.getElementById("btnContinuar");
+  if (btnContinuar) {
+    btnContinuar.addEventListener("click", () => {
+      console.log("Click en Continuar");
+      window.location.href = "../html/pantalla2.html";
+    });
+  }
+
+  /* =====================
+     CERRAR INSTRUCCIONES
+  ===================== */
+  const btnCerrar = document.getElementById("btnCerrarInstrucciones");
+  if (btnCerrar) {
+    btnCerrar.addEventListener("click", () => {
+      document
+        .getElementById("pergamino-instrucciones")
+        .classList.add("oculto");
+    });
+  }
 });
 
 /* =====================
@@ -14,8 +37,6 @@ document.addEventListener("mostrarPergamino", () => {
   const pantalla = document.getElementById("pantalla-inicial");
   const pergamino = document.getElementById("pergamino");
   const texto = document.getElementById("texto-pergamino");
-
-  console.log("Evento mostrarPergamino recibido");
 
   pantalla.classList.add("pantalla-desvanecer");
 
@@ -40,6 +61,16 @@ Zeus impuso una condición: solo quien demuestre verdadera sabiduría podrá rec
 });
 
 /* =====================
+   MOSTRAR INSTRUCCIONES
+===================== */
+document.addEventListener("mostrarInstrucciones", () => {
+  const instrucciones = document.getElementById("pergamino-instrucciones");
+  if (instrucciones) {
+    instrucciones.classList.remove("oculto");
+  }
+});
+
+/* =====================
    ESCRIBIR TEXTO
 ===================== */
 function escribirTexto(mensaje, elemento) {
@@ -47,7 +78,7 @@ function escribirTexto(mensaje, elemento) {
   elemento.style.opacity = 1;
 
   const btnContinuar = document.getElementById("btnContinuar");
-  btnContinuar.classList.add("oculto"); // por si se reutiliza
+  if (btnContinuar) btnContinuar.classList.add("oculto");
 
   let i = 0;
   const intervalo = setInterval(() => {
@@ -56,7 +87,7 @@ function escribirTexto(mensaje, elemento) {
 
     if (i >= mensaje.length) {
       clearInterval(intervalo);
-      btnContinuar.classList.remove("oculto"); //  aparece flecha
+      if (btnContinuar) btnContinuar.classList.remove("oculto");
     }
   }, 40);
 }
