@@ -24,10 +24,8 @@ body {
     backdrop-filter: blur(2px);
 }
 
-/* CONTENEDOR PRINCIPAL (NUNCA CAMBIA WIDTH) */
-#main {
-    width: 42rem;
-    max-width: 90vw;
+.pantalla-juego {
+    width: 50rem;
 }
 
 /* BLOQUE SUPERIOR */
