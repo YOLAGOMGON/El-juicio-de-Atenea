@@ -1,0 +1,107 @@
+:root {
+    --font-principal: "Almendra", serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*font-family: 'EB Garamond', serif;   */
+    /*font-family: var(--font-principal);*/
+    background-color: black;
+}
+
+/* CONTENEDOR GENERAL */
+.end-screen {
+    width: 90%;
+    max-width: 700px;
+    width: 100%;
+    height: 650px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+
+    border: 4px solid #c8a75e;
+    border-radius: 16px;
+    box-shadow: 0 0 35px rgba(0,0,0,.7);
+
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* VICTORIA */
+.end-screen.win {
+    background-image: url("../assets/background/Fondo_Victoria.png");
+}
+
+.end-screen.win h1 {
+    color: #f7edd4;
+    font-size: 3.2rem;
+}
+
+/* DERROTA */
+.end-screen.lose {
+    background-image: url("../assets/background/Fondo_Derrota.png");
+}
+
+.end-screen.lose h1 {
+    color: #ebd650;
+    font-size: 3.2rem;
+}
+
+/* TEXTO */
+.end-screen h1 {
+    font-family: 'Cinzel', serif;
+    /*font-family: var(--font-principal);*/
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    border-bottom: #f1d777 3px solid;   
+    
+}
+
+/*Hola*/
+
+#txt-container {
+    background-color: rgba(0, 0, 0, 0.265);
+    backdrop-filter: blur(2px);
+    border-radius: 16px;
+}
+
+.end-screen p {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    color: white;
+}
+
+/* BOTÓN */
+.end-screen button {
+    /*font-family: 'Cinzel', serif;*/
+    font-family: var(--font-principal);
+    font-size: 1.1rem;
+    padding: 12px 24px;
+
+    border-radius: 10px;
+    border: 3px solid #bfa76a;
+    cursor: pointer;
+
+    background: linear-gradient(to bottom, #f4efe4, #d6c8a2);
+    position: absolute;
+    bottom: 80px;
+    left: 45%;
+}
+
+.end-screen button:hover {
+    background: linear-gradient(to bottom, #f1d777, #caa23c);
+}
+

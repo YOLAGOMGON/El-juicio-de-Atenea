@@ -1,3 +1,15 @@
+/* Variables globales */
+:root {
+  --font-principal: "Almendra", serif;
+  --color-texto: #fff;
+  --color-titulo: rgb(223, 204, 36);
+  --color-parrafo: black;
+  --sombra-texto: 2px 2px 8px #000;
+  --titulo-size: 3rem;
+  --parrafo-size: 48px;
+}
+
+/* Estilos */
 html {
   font-family: "Almendra", serif;
   
