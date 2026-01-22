@@ -22,6 +22,11 @@ export function renderMaterials(materials) {
     document.getElementById("oro").textContent = materials.oro;
 }
 
-export function renderEndScreen(message) {
-    alert(message);
+
+export function renderEndScreen(title, message, type) {
+    sessionStorage.setItem("endType", type); // "win" o "lose"
+    sessionStorage.setItem("endTitle", title);
+    sessionStorage.setItem("endMessage", message);
+
+    window.location.href = "./html/pantalla_final.html";
 }
