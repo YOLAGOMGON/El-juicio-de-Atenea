@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>El Juicio de Atenea</title>
+  <link rel="stylesheet" href="./CSS/styless.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <section class="container-principal">
+    <!-- Pantalla principal -->
+
+    <div class="container text-center" id="pantalla-inicial">
+      <h1 class="title">EL JUICIO DE ATENEA</h1>
+      <p class="descripcion">Demuestra tu sabiduría <br>
+        y reconstruye Acrópolis</p>
+
+      <button id="btnComenzar" class="btn btn-gold ">Comenzar</button>
+      <button class="btn btn-simple" id="btnInstrucciones">Instrucciones</button>
+    </div>
+
+    <div class="pergamino-oculto" id="pergamino">
+      <div class="pergamino-contenido">
+        <p id="texto-pergamino"></p>
+
+        <!--botón para que siga la otra pantalla de nombre del personaje-->
+          
+        <button id="btnContinuar" class="btn-play-img oculto">
+          <img src="./assets/background/Continuar.png" alt="Continuar">
+        </button>
+      </div>
+    </div>
+
+
+    <!-- PERGAMINO DE INSTRUCCIONES -->
+    <div class="pergamino-instrucciones oculto" id="pergamino-instrucciones">
+      <div class="pergamino-contenido">
+        <h2> El Juicio de Atenea</h2>
+
+        <p>
+        Resolverás acertijos bajo la mirada de la diosa.
+        </p>
+
+        <p>
+          <strong>Tiempo limitado</strong><br>
+          Cada desafío debe resolverse antes de que el tiempo se agote.
+        </p>
+
+        <p>
+           <strong>Si respondes correctamente:</strong><br>
+          • Obtienes un recurso sagrado<br>
+          • Atenea te bendice con sabiduría<br>
+          • Acrópolis avanza en su reconstrucción
+        </p>
+
+        <p>
+          <strong>Si fallas o el tiempo termina:</strong><br>
+          • Pierdes la oportunidad<br>
+          • La ciudad permanece en ruinas
+        </p>
+
+        <p class="frase">
+          No basta con saber.<br>
+          <em>Debes elegir con sabiduría.</em>
+        </p>
+
+        <button id="btnCerrarInstrucciones" class="btn-trivia-atenea">
+          Cerrar
+        </button>
+      </div>
+    </div>
+
+
+  </section>
+
+  
+<script type="module" src="./JS/main.js"></script>
+
+</body>
+</html>
