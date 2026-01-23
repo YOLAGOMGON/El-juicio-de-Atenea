@@ -262,7 +262,7 @@ function inicializarBotonesIndex() {
     if (btnContinuar) {
         btnContinuar.addEventListener("click", () => {
             console.log("Click en Continuar");
-            window.location.href = "/html/pantalla2/pantalla2.html";
+            window.location.href = "../pantalla2/pantalla2.html";
         });
     }
     
