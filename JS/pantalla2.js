@@ -1,3 +1,9 @@
+console.log ("entro a pantalla 2")
+
+
+
+
+
   const inputNombre = document.getElementById("nombreAvatar");
 
 

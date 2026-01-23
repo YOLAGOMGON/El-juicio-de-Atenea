@@ -15,6 +15,12 @@ import {
 import { disableAnswers, iniciarBotones } from "./ui/buttons.js";
 
 /* ===============================
+   VARIABLES GLOBALES
+=============================== */
+let intervaloTexto = null; // Variable para almacenar el intervalo de texto
+let pergaminoEventoRegistrado = false; // Flag para evitar registro múltiple del evento
+
+/* ===============================
    DETECTAR PANTALLA ACTUAL
 =============================== */
 function detectarPantalla() {
@@ -25,6 +31,7 @@ function detectarPantalla() {
     const isIndexScreen = pantallaInicial !== null;
     
 
+    
     // Debug: mostrar todos los IDs en el documento
     if (!isGameScreen && !isIndexScreen) {
         console.log("🔍 Buscando todos los elementos con ID:");
@@ -146,6 +153,7 @@ function iniciarIndex() {
         // No es la pantalla inicial, salir silenciosamente
         return;
     }
+    
 
     // Inicializar botones cuando el DOM esté listo
     if (document.readyState === 'loading') {
@@ -157,32 +165,39 @@ function iniciarIndex() {
     /* =====================
        EVENTO PERGAMINO
     ===================== */
-    document.addEventListener("mostrarPergamino", () => {
-        const pantalla = document.getElementById("pantalla-inicial");
-        const pergamino = document.getElementById("pergamino");
-        const texto = document.getElementById("texto-pergamino");
+    // Registrar el evento solo una vez
+    if (!pergaminoEventoRegistrado) {
+        pergaminoEventoRegistrado = true;
+        
+        document.addEventListener("mostrarPergamino", () => {
+            const pantalla = document.getElementById("pantalla-inicial");
+            const pergamino = document.getElementById("pergamino");
+            const texto = document.getElementById("texto-pergamino");
 
-        pantalla.classList.add("pantalla-desvanecer");
+            if (!pantalla || !pergamino || !texto) return;
 
-        setTimeout(() => {
-            pantalla.classList.add("oculto");
-            pergamino.classList.add("mostrar");
+            pantalla.classList.add("pantalla-desvanecer");
 
             setTimeout(() => {
-                escribirTexto(
-                    `En la antigua Acrópolis, una disputa entre Atenea y Poseidón terminó en desastre.
+                pantalla.classList.add("oculto");
+                pergamino.classList.add("mostrar");
+
+                setTimeout(() => {
+                    escribirTexto(
+                        `En la antigua Acrópolis, una disputa entre Atenea y Poseidón terminó en desastre.
 
 Poseidón inundó la ciudad para demostrar su poder.
 
 Zeus impuso una condición: solo quien demuestre verdadera sabiduría podrá reconstruir la ciudad.`,
-                    texto
-                );
+                        texto
+                    );
 
-                texto.classList.add("mostrar");
-            }, 1800);
+                    texto.classList.add("mostrar");
+                }, 1800);
 
-        }, 800);
-    });
+            }, 800);
+        });
+    }
 
     /* =====================
        MOSTRAR INSTRUCCIONES
@@ -198,6 +213,12 @@ Zeus impuso una condición: solo quien demuestre verdadera sabiduría podrá rec
        ESCRIBIR TEXTO
     ===================== */
     function escribirTexto(mensaje, elemento) {
+        // Limpiar cualquier intervalo anterior
+        if (intervaloTexto) {
+            clearInterval(intervaloTexto);
+            intervaloTexto = null;
+        }
+        
         elemento.textContent = "";
         elemento.style.opacity = 1;
 
@@ -205,12 +226,13 @@ Zeus impuso una condición: solo quien demuestre verdadera sabiduría podrá rec
         if (btnContinuar) btnContinuar.classList.add("oculto");
 
         let i = 0;
-        const intervalo = setInterval(() => {
-            elemento.textContent += mensaje[i];
-            i++;
-
-            if (i >= mensaje.length) {
-                clearInterval(intervalo);
+        intervaloTexto = setInterval(() => {
+            if (i < mensaje.length) {
+                elemento.textContent += mensaje[i];
+                i++;
+            } else {
+                clearInterval(intervaloTexto);
+                intervaloTexto = null;
                 if (btnContinuar) btnContinuar.classList.remove("oculto");
             }
         }, 40);
@@ -253,9 +275,7 @@ function inicializarBotonesIndex() {
 =============================== */
 // Función para inicializar cuando el DOM esté listo
 function inicializar() {
-  
     iniciarJuego();
-    
     iniciarIndex();
 }
 
@@ -264,14 +284,13 @@ function esperarDOM() {
    
     // Función auxiliar para intentar inicializar
     function intentarInicializar() {
-      
+        
         // Usar querySelector que es más robusto
         const pantallaJuego = document.querySelector("#pantalla-juego") || document.querySelector(".pantalla-juego");
         const pantallaInicial = document.querySelector("#pantalla-inicial");
-       
+      
         // Si encontramos cualquiera de las dos pantallas, inicializar
         if (pantallaJuego || pantallaInicial) {
-            console.log("✅ Elemento de pantalla encontrado!");
             inicializar();
             return true;
         }
@@ -281,11 +300,8 @@ function esperarDOM() {
     // Si el DOM aún está cargando, esperar al evento
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-            console.log("✅ DOMContentLoaded disparado");
-            // Esperar un poco más para asegurar que todos los elementos estén disponibles
             setTimeout(() => {
                 if (!intentarInicializar()) {
-                    console.log("⚠️ No se encontró ninguna pantalla después de DOMContentLoaded, reintentando...");
                     setTimeout(intentarInicializar, 200);
                 }
             }, 50);
@@ -293,7 +309,6 @@ function esperarDOM() {
     } else {
         setTimeout(() => {
             if (!intentarInicializar()) {
-                console.log("⚠️ No se encontró ninguna pantalla, reintentando...");
                 setTimeout(intentarInicializar, 200);
             }
         }, 50);
@@ -301,15 +316,7 @@ function esperarDOM() {
     
     // Fallback adicional: intentar después de más tiempo
     setTimeout(() => {
-         if (!intentarInicializar()) {
-            console.log("⚠️ No se encontró ninguna pantalla después de múltiples intentos, inicializando de todas formas...");
-            console.log("📋 Todos los elementos del body:", Array.from(document.body?.children || []).map(el => {
-                const info = el.tagName;
-                if (el.id) return info + `#${el.id}`;
-                if (el.className) return info + `.${el.className}`;
-                return info;
-            }));
-            // Intentar inicializar de todas formas
+        if (!intentarInicializar()) {
             inicializar();
         }
     }, 1000);
