@@ -44,7 +44,7 @@ function detectarPantalla() {
     
     // Debug: mostrar todos los IDs en el documento
     if (!isGameScreen && !isIndexScreen) {
-        console.log("🔍 Buscando todos los elementos con ID:");
+        console.log(" Buscando todos los elementos con ID:");
         const allIds = Array.from(document.querySelectorAll('[id]')).map(el => el.id);
         console.log("  IDs encontrados:", allIds);
     }
@@ -119,17 +119,17 @@ function iniciarJuego() {
     const materialesEl = document.getElementById("materiales");
     
     if (!preguntaEl) {
-        console.error("❌ Elemento 'pregunta' no encontrado");
+        console.error(" Elemento 'pregunta' no encontrado");
         return;
     }
     
     if (!respuestasEl) {
-        console.error("❌ Elemento 'respuestas' no encontrado");
+        console.error(" Elemento 'respuestas' no encontrado");
         return;
     }
     
     if (!materialesEl) {
-        console.error("❌ Elemento 'materiales' no encontrado");
+        console.error(" Elemento 'materiales' no encontrado");
         return;
     }
     
@@ -147,7 +147,7 @@ function iniciarJuego() {
     try {
         loadQuestion();
     } catch (error) {
-        console.error("❌ Error al cargar la pregunta:", error);
+        console.error(" Error al cargar la pregunta:", error);
     }
 }
 
@@ -262,7 +262,7 @@ function inicializarBotonesIndex() {
     if (btnContinuar) {
         btnContinuar.addEventListener("click", () => {
             console.log("Click en Continuar");
-            window.location.href = "./html/pantalla2/pantalla2.html";
+            window.location.href = "/html/pantalla2/pantalla2.html";
         });
     }
     
