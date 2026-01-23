@@ -76,5 +76,5 @@ btnGuardar.addEventListener("click", () => {
   }
   
   localStorage.setItem("nombre", valor);
-  window.location.href = "../pantalla_3.html";
+  window.location.href = "../pantalla3/pantalla3.html";
 });
