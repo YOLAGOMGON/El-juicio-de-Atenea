@@ -19,7 +19,7 @@ if (type === "win") {
 }
 
 btn.addEventListener("click", () => {
-    window.location.href = "../pantalla_3.html"; 
+    window.location.href = "../html/pantalla2/pantalla2.html"; 
 });
 
 
