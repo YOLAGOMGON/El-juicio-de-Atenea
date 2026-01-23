@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../CSS/pantalla_3_styles.css">
+        <title>Pantalla 3</title>
+    </head>
+    <body>
+        
+        <div class="pantalla-juego">
+
+            <div id="characters-container">
+                <img src="../../assets/characters/niño.png" alt="aldeano" id="character-img">
+                <img src="../../assets/characters/atenea.png" alt="atenea" id="atenea">
+            </div> 
+
+           <!-- Parte superior -->
+            <div id="upper-part">
+                    
+                <div id="character-container">
+                    <h3 id="aldeano"></h3> <!-- USERNAMEEE -->
+                </div>
+    
+                <div class="pregunta-container">
+                    <h1 id="pregunta"></h1>
+                    <h3 id="tiempo"></h3> 
+                </div>
+            </div>
+            <!-- Respuestas -->
+            <div id="tablero-de-seleccion">
+                <div class="respuestas" id="respuestas"></div>
+            </div>
+
+            <h3 id="tiempo"></h3>
+
+            <!-- Materiales -->
+            <div id="materiales">
+                <h4>Materiales</h4>
+                <ul>
+                    <li><img src="../../assets/icons/madera_icono.png" alt="icono-madera" class="material-icons">: <span id="madera">0</span></li>
+                    <li><img src="../../assets/icons/roca_icono.png" alt="icono-roca" class="material-icons">: <span id="piedra">0</span></li>
+                    <li><img src="../../assets/icons/comida_icono.png" alt="icono-comida" class="material-icons">: <span id="comida">0</span></li>
+                    <li><img src="../../assets/icons/oro_icono.png" alt="icono-oro" class="material-icons">: <span id="oro">0</span></li>
+                </ul>
+            </div>
+
+        </div>
+    <script type="module" src="../../JS/main.js"></script>
+</body>
+</html>
