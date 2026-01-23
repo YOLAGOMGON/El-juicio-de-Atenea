@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Juicio de Atenea</title>
+  <link rel="stylesheet" href="/CSS/pantalla2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container text-center" id="pantalla-inicial">
+    <h1 class="title">Creación del avatar</h1>
+
+    <div id="character-container">
+      <label for="nombre" class="labelnombre">Ingresa tu nombre:</label>
+      <input id="nombre" class="inputnombre" type="text" placeholder="Juan Emilio">
+    </div>
+
+    <button id="btnLeyenda" class="btn">Leyenda</button>
+
+    <div id="leyenda" class="oculto">
+      <div class="leyenda-contenido">
+        <p id="texto-leyenda"></p>
+      </div>
+    </div>
+
+    <button id="guardar_continuar" class="btn">Continuar</button>
+  </div>
+
+  <script src="/JS/data/pantalla2.js"></script>
+</body>
+</html>
