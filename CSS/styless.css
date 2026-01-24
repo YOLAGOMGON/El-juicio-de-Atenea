@@ -173,7 +173,7 @@ body {
   min-height: 300px;
   padding: 30px;
 
-  background-image: url(/assets/background/pergamino-removebg-preview.png);
+  background-image: url("../assets/background/pergamino-removebg-preview.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -292,7 +292,7 @@ body {
 }
 
 .pergamino-instrucciones .pergamino-contenido {
-  background-image: url(../assets/background/pergamino-removebg-preview.png);
+  background-image: url("../assets/background/pergamino-removebg-preview.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
