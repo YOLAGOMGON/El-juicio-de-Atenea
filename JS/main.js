@@ -73,6 +73,7 @@ Zeus impuso una condición: solo quien demuestre verdadera sabiduría podrá rec
     if (btnContinuar) {
         btnContinuar.addEventListener("click", () => {
             window.location.href = "./html/pantalla2/pantalla2.html";
+";
         });
     }
 }
