@@ -19,15 +19,19 @@ body {
     align-items: center;
 
     min-height: 100vh;
-    padding: 1rem;
 
     backdrop-filter: blur(2px);
 }
 
-/* CONTENEDOR PRINCIPAL (NUNCA CAMBIA WIDTH) */
-#main {
-    width: 42rem;
-    max-width: 90vw;
+.pantalla-juego {
+    width: 100%;
+    max-width: 50rem;
+    padding: 0 1rem;
+}
+
+#characters-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 /* BLOQUE SUPERIOR */
@@ -48,8 +52,22 @@ body {
     gap: 1rem;
 }
 
+#character-img {
+    height: 10rem;
+    display: block;
+    
+}
+
+#atenea{
+    height: 10rem;
+    display: block;
+    transform: scaleX(-1);
+    justify-self: right ;
+}
+
+
 /* ALDEANO */
-.aldeano-container {
+#character-container {
     background: rgba(255, 255, 255, 0.6);
     padding: 10px 20px;
     border-radius: 10px;
@@ -123,6 +141,12 @@ body {
 }
 
 /* MATERIALES */
+
+.material-icons {
+    height: 1.5rem;
+
+}
+
 #materiales {
     background: linear-gradient(to bottom, #2c2c2c, #1a1a1a);
     border: 3px solid #bfa76a;
@@ -153,29 +177,74 @@ body {
 }
 
 #materiales li {
-    font-size: 1rem;
+    font-size: 3rem;
     letter-spacing: 0.5px;
     color: white;
 }
 
-/* RESPONSIVE SIN ROMPER LAYOUT */
-@media (max-width: 900px) {
-    #upper-part {
-        flex-direction: column;
-        text-align: center;
+@media (max-width: 600px) {
+
+    .pantalla-juego {
+        max-width: 100%;
+        padding: 0 0.8rem;
     }
 
-    .pregunta-container {
-        max-width: 100%;
-        text-align: center;
+    #upper-part {
+        display: flex;
+        flex-direction: column;
+        padding: 14px;
+    }
+
+    #tiempo {
+        justify-self: center;
+    }
+
+    #character-img,
+    #atenea {
+        height: 6.5rem;
+    }
+
+    #aldeano {
+        font-size: 0.85rem;
     }
 
     #pregunta {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
+        min-height: auto;
+        text-align: center;
+    }
+
+    .respuestas {
+        grid-template-columns: 1fr;
     }
 
     .respuesta {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
+    #materiales ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    #materiales li {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 380px) {
+
+    #character-img,
+    #atenea {
+        height: 5.5rem;
+    }
+
+    #pregunta {
         font-size: 1rem;
-        padding: 14px;
+    }
+
+    .respuesta {
+        font-size: 0.9rem;
     }
 }
