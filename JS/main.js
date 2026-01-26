@@ -262,7 +262,7 @@ function inicializarBotonesIndex() {
     if (btnContinuar) {
         btnContinuar.addEventListener("click", () => {
             console.log("Click en Continuar");
-            window.location.href = "./html/pantalla2/pantalla2.html";
+            window.location.href = "/El-juicio-de-Atenea/html/pantalla2/pantalla2.html";
         });
     }
     
